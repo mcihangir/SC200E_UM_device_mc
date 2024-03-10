@@ -1,0 +1,11 @@
+diff --git a/UM.9.15/device/qcom/bengal/bengal.mk b/UM.9.15/device/qcom/bengal/bengal.mk
+index 266460c..b7215c2 100644
+--- a/UM.9.15/device/qcom/bengal/bengal.mk
++++ b/UM.9.15/device/qcom/bengal/bengal.mk
+@@ -267,3 +267,6 @@ include device/qcom/wlan/bengal/wlan.mk
+ $(call inherit-product-if-exists, vendor/qcom/defs/product-defs/system/*.mk)
+ $(call inherit-product-if-exists, vendor/qcom/defs/product-defs/vendor/*.mk)
+ ###################################################################################
++
++#mc device
++include device/mc/mcdevice.mk

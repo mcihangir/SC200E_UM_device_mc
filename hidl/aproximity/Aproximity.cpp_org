@@ -1,0 +1,30 @@
+// FIXME: your file license if you have one
+
+#include "Aproximity.h"
+
+namespace vendor::mc::aproximity::implementation {
+
+// Methods from ::vendor::mc::aproximity::V1_0::IAproximity follow.
+Return<int32_t> Aproximity::poll(int32_t precision) {
+    // TODO implement
+    return int32_t {};
+}
+
+Return<void> Aproximity::get_details(get_details_cb _hidl_cb) {
+    // TODO implement
+    return Void();
+}
+
+Return<void> Aproximity::summarize(summarize_cb _hidl_cb) {
+    // TODO implement
+    return Void();
+}
+
+
+// Methods from ::android::hidl::base::V1_0::IBase follow.
+
+//IAproximity* HIDL_FETCH_IAproximity(const char* /* name */) {
+    //return new Aproximity();
+//}
+//
+}  // namespace vendor::mc::aproximity::implementation

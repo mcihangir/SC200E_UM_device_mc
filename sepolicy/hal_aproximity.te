@@ -1,0 +1,25 @@
+hal_attribute(aproximity)
+
+type hal_aproximity_hwservice, hwservice_manager_type;
+
+###
+# The HIDL aproximity attribute defines the _server and _client
+#
+binder_call(hal_aproximity_client, hal_aproximity_server)
+binder_call(hal_aproximity_server, hal_aproximity_client)
+
+hal_attribute_hwservice(hal_aproximity, hal_aproximity_hwservice)
+
+###
+# Create an execution domain for the service hosting and service side
+#
+type hal_aproximity_default, domain;
+hal_server_domain(hal_aproximity_default, hal_aproximity)
+
+type hal_aproximity_default_exec, exec_type, vendor_file_type, file_type;
+init_daemon_domain(hal_aproximity_default)
+
+allow hal_aproximity_default hal_aproximity_hwservice:hwservice_manager find;
+
+# Allow the HIDL access to /dev/tty* 
+allow hal_aproximity_default serial_device:chr_file rw_file_perms;

@@ -1,0 +1,55 @@
+cc_defaults {
+	name: "vendor.mc.aproximity@1.0-defaults",
+	defaults: ["hidl_defaults"],
+	relative_install_path: "hw",
+	shared_libs: [
+		"libhidlbase",
+		"libhidltransport",
+		"libhwbinder",
+		"libutils",
+		"vendor.mc.aproximity@1.0", //this is needed for fatal error: 'vendor/mc/aproximity/1.0/IAproximity.h' file not found
+	],
+	vendor: true,
+	proprietary: true,
+}
+
+//
+// This is for HIDL shim library vendor.mc.aproximity@1.0-impl
+// This is for Android.cpp
+//
+cc_library {
+	name: "vendor.mc.aproximity@1.0-impl",
+	defaults: ["vendor.mc.aproximity@1.0-defaults"],
+	srcs: [
+		"Aproximity.cpp",
+	],
+	header_libs: [
+		"libacmeproximityshim_headers",
+	],
+	static_libs: [	
+		"libacmeproximityshim",
+	],
+	export_include_dirs: ["."],
+}
+
+//
+// This is for HIDL service (backing service)
+// This is for service.cpp
+//
+cc_binary {
+	name: "vendor.mc.aproximity@1.0-service",
+	defaults: ["vendor.mc.aproximity@1.0-defaults"],
+	init_rc: ["vendor.mc.aproximity@1.0-service.rc"],
+	srcs: [
+		"service.cpp",
+	],
+	header_libs: [
+		"libacmeproximityshim_headers",
+	],
+	static_libs: [
+		"vendor.mc.aproximity@1.0-impl",
+		"libacmeproximityshim",
+	],
+	vendor: true,
+	proprietary: true,
+}
