@@ -1,0 +1,10 @@
+cc_binary {
+	name: "aproximitycl",
+	srcs: [ "src/*.cpp" ],
+	vendor: true,
+	shared_libs: [
+		"libhidlbase",
+		"libutils",
+		"vendor.mc.aproximity@1.0"
+	],	
+}

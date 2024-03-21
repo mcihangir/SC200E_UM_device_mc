@@ -23,3 +23,26 @@ allow hal_aproximity_default hal_aproximity_hwservice:hwservice_manager find;
 
 # Allow the HIDL access to /dev/tty* 
 allow hal_aproximity_default serial_device:chr_file rw_file_perms;
+
+
+
+# Create an execution domain for aproximitycl which is able to access the service
+#
+#
+type aproximitycl, domain;
+hal_client_domain(aproximitycl, hal_aproximity)
+
+type aproximitycl_exec, exec_type, vendor_file_type, file_type;
+
+domain_auto_trans(shell, aproximitycl_exec, aproximitycl)
+
+allow shell aproximitycl_exec:file { getattr open read execute map };
+
+# Allow `adb shell /vendor/bin/aproximitycl` and also
+# `adb shell` then `/vendor/bin/aproximitycl`
+allow aproximitycl shell:fd use;
+allow aproximitycl adbd:fd use;
+allow aproximitycl adbd:process sigchld;
+allow aproximitycl adbd:unix_stream_socket { getattr ioctl read write };
+allow aproximitycl devpts:chr_file rw_file_perms;
+

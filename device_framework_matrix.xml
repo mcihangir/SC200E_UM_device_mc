@@ -1,11 +1,10 @@
-<manifest version="1.0" type="device">
-	<hal format="hidl">
+<compatibility-matrix version="1.0" type="framework" level="5">
+	<hal format="hidl" optional="true">
 		<name>vendor.mc.aproximity</name>
-		<transport>hwbinder</transport>
 		<version>1.0</version>
 		<interface>
 			<name>IAproximity</name>
 			<instance>default</instance>
 		</interface>
 	</hal>
-</manifest>
+</compatibility-matrix>

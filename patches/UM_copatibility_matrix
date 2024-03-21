@@ -1,0 +1,17 @@
+diff --git a/UM.9.15/hardware/interfaces/compatibility_matrices/compatibility_matrix.5.xml b/UM.9.15/hardware/interfaces/compatibility_matrices/compatibility_matrix.5.xml
+index e8c38c3..1b06e59 100755
+--- a/UM.9.15/hardware/interfaces/compatibility_matrices/compatibility_matrix.5.xml
++++ b/UM.9.15/hardware/interfaces/compatibility_matrices/compatibility_matrix.5.xml
+@@ -1,4 +1,12 @@
+ <compatibility-matrix version="1.0" type="framework" level="5">
++	<hal format="hidl" optional="true">
++		<name>vendor.mc.aproximity</name>
++		<version>1.0</version>
++		<interface>
++			<name>IAproximity</name>
++			<instance>default</instance>
++		</interface>
++	</hal>
+     <hal format="hidl" optional="true">
+         <name>android.hardware.quectelat</name>
+         <version>1.0</version>

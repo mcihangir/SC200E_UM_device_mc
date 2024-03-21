@@ -1,0 +1,69 @@
+1. Add the interface defination to QSSI.12/hardware/interfaces/compatibility_matrices/compatibility_matrix.6.xml
+2. Add the IAproximity.hal types.hal and bp files to QSSI.12/vendor/mc same directory
+3. Add the following hidl interface definations to qiifa_hidl_cmd json files
+QSSI.12/vendor/qcom/proprietary/commonsys-intf/QIIFA-cmd/hidl/qiifa_hidl_cmd_5.json
+QSSI.12/vendor/qcom/proprietary/commonsys-intf/QIIFA-cmd/hidl/qiifa_hidl_cmd_6.json
+,
+			 {
+				 "@format": "hidl",
+				 "@optional": "true",
+				 "name": "vendor.mc.aproximity",
+				 "version": "1.0",
+				 "interface": {
+					 "name": "IAproximity",
+					 "instance": "default"
+				 }
+			  }
+
+
+4. Do not need to modify qiifa_hidl_cmd files in UM.9.15 folder. It has been already updated after python script merging the images
+Automatically updated following files.
+
+UM.9.15/QIIFA_CHECKS_DIR/bengal/qiifa_bengal_current_cmd/qiifa_hidl_cmd_2.0.json
+UM.9.15/QIIFA_CHECKS_DIR/qssi/qiifa_qssi_current_cmd/qiifa_hidl_cmd_5.json
+UM.9.15/QIIFA_CHECKS_DIR/qssi/qiifa_qssi_current_cmd/qiifa_hidl_cmd_6.json
+
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+UM.9.15/QIIFA_CHECKS_DIR/bengal/qiifa_bengal_current_cmd/qiifa_hidl_cmd_2.0.json
+            {
+                "@format": "hidl", 
+                "name": "vendor.mc.aproximity", 
+                "transport": "hwbinder", 
+                "version": "1.0", 
+                "interface": {
+                    "name": "IAproximity", 
+                    "instance": "default"
+                }, 
+                "fqname": "@1.0::IAproximity/default", 
+                "provider": "device"
+            },
+
+
+UM.9.15/QIIFA_CHECKS_DIR/qssi/qiifa_qssi_current_cmd/qiifa_hidl_cmd_6.json
+,
+			 {
+				 "@format": "hidl",
+				 "@optional": "true",
+				 "name": "vendor.mc.aproximity",
+				 "version": "1.0",
+				 "interface": {
+					 "name": "IAproximity",
+					 "instance": "default"
+				 }
+			  }
+
+UM.9.15/QIIFA_CHECKS_DIR/qssi/qiifa_qssi_current_cmd/qiifa_hidl_cmd_5.json
+,
+			{
+				"@format": "hidl",
+				"@optional": "true",
+				"name": "vendor.mc.aproximity",
+				"version": "1.0",
+				"interface": {
+					"name": "IAproximity",
+					"instance": "default"
+				}
+			 }
